@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { EditorContext } from "../context/editorContext.jsx";
 const CHOICES = [
   { id: "original", name: "Original" },
   { id: "warm", name: "Warm" },
@@ -5,12 +7,13 @@ const CHOICES = [
   { id: "faded", name: "Faded" },
 ];
 
-function PresetPicker({ preset, dispatch }) {
+function PresetPicker() {
+  const { editor, dispatch } = useContext(EditorContext);
   return (
     <label className="preset-picker">
       Preset
       <select
-        value={preset}
+        value={editor.preset}
         onChange={(e) => dispatch({ type: "preset_chosen", preset: e.target.value })}
       >
         {CHOICES.map((choice) => (

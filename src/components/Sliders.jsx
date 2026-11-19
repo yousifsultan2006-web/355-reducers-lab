@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { EditorContext } from "../context/editorContext.jsx";
+
 const SLIDERS = [
   { name: "brightness", label: "Brightness", max: 200 },
   { name: "contrast", label: "Contrast", max: 200 },
@@ -5,7 +8,8 @@ const SLIDERS = [
   { name: "sepia", label: "Sepia", max: 100 },
 ];
 
-function Sliders({ editor, dispatch }) {
+function Sliders() {
+  const { editor, dispatch } = useContext(EditorContext);
   return (
     <div className="sliders">
       {SLIDERS.map((slider) => (

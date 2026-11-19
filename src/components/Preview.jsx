@@ -1,6 +1,9 @@
 import { PHOTOS } from "../photos.js";
+import { useContext } from "react";
+import { EditorContext } from "../context/editorContext.jsx";
 
-function Preview({ editor }) {
+function Preview() {
+  const { editor } = useContext(EditorContext);
   const photo = PHOTOS.find((p) => p.id === editor.photo);
   const sideways = editor.rotation === 90 || editor.rotation === 270;
 
